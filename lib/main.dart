@@ -35,7 +35,6 @@ class ListaPage extends StatefulWidget {
 
 class _ListaPageState extends State<ListaPage> {
   int contador = 0; 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
