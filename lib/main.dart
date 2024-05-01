@@ -31,10 +31,8 @@ class ListaPage extends StatefulWidget {
   State<ListaPage> createState() => _ListaPageState();
 }
 
-
-
 class _ListaPageState extends State<ListaPage> {
-  int contador = 0; 
+  int contador = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +41,7 @@ class _ListaPageState extends State<ListaPage> {
             "Contatos Favoritos $contador",
             style: const TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.pink),
+          backgroundColor: Colors.cyan),
       body: ListView.builder(
           itemCount: contatos.length,
           itemBuilder: (BuildContext context, int index) {
@@ -51,10 +49,21 @@ class _ListaPageState extends State<ListaPage> {
               leading: CircleAvatar(
                 backgroundImage: NetworkImage(contatos[index].imagem),
               ),
-              title: Text(contatos[index].nome),
-              subtitle: Text(contatos[index].email),
+              title: Text(
+                contatos[index].nome,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.black),
+              ),
+              subtitle: Text(
+                contatos[index].email,
+                style: const TextStyle(
+                    fontWeight: FontWeight.w400, color: Colors.black),
+              ),
               trailing: IconButton(
-                icon: Icon(contatos[index].icone, color: contatos[index].cor,),
+                icon: Icon(
+                  contatos[index].icone,
+                  color: contatos[index].cor,
+                ),
                 onPressed: () {
                   setState(() {
                     if (contatos[index].icone == Icons.favorite_border) {
